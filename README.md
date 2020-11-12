@@ -5,6 +5,6 @@
 
 ----
 
-### Análisis del kit de herramientas Flutter y desarrollo de un prototipo de aplicación multiplataforma
+<h3 align="center">Análisis del kit de herramientas Flutter y desarrollo de un prototipo de aplicación multiplataforma</h3>
 
 
