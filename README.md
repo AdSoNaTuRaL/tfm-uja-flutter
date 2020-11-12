@@ -9,5 +9,5 @@
 # :pushpin: Tabla de Links
 
 * [Notion](https://www.notion.so/TFM-Trabajo-Fin-de-M-ster-a01256bf528b4eed968583d49163fe8b)
-* [whimsical](https://whimsical.com/flutter-64HxQ2GvpAECRsK5uv1SVA)
+* [Whimsical](https://whimsical.com/flutter-64HxQ2GvpAECRsK5uv1SVA)
 
