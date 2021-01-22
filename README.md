@@ -6,7 +6,7 @@
 
 -----
 
-# :link: Links
+# :link: Useful links
 
 * [Notion](https://www.notion.so/TFM-Trabajo-Fin-de-M-ster-a01256bf528b4eed968583d49163fe8b)
 * [Whimsical](https://whimsical.com/flutter-64HxQ2GvpAECRsK5uv1SVA)
