@@ -1,9 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:blissful/constants.dart';
 import 'package:blissful/routes.dart';
-import 'package:blissful/screens/splash/splash_screen.dart';
-import 'package:flutter/material.dart';
 
-void main() {
+int initScreen;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  initScreen = preferences.getInt("initScreen");
+  await preferences.setInt("initScreen", 1);
   runApp(MyApp());
 }
 
@@ -12,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Blissful',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Nunito',
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: SplashScreen(),
-      initialRoute: SplashScreen.routeName,
+      initialRoute: initScreen == 0 || initScreen == null ? "/splash" : "/home",
       routes: routes,
     );
   }
