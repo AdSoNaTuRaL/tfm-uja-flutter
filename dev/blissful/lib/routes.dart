@@ -1,6 +1,8 @@
-import 'package:blissful/screens/splash/splash_screen.dart';
+import 'package:blissful/screens/home/home_screen.dart';
+import 'package:blissful/screens/onboard/on_boarding_screen.dart';
 import 'package:flutter/widgets.dart';
 
 final Map<String, WidgetBuilder> routes = {
-  SplashScreen.routeName: (context) => SplashScreen(),
+  OnBoardingScreen.routeName: (context) => OnBoardingScreen(),
+  HomeScreen.routeName: (context) => HomeScreen(),
 };
