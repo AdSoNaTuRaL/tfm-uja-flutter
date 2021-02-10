@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  LatLng _center = LatLng(37.7797221, -3.7943167);
+  LatLng _center = LatLng(37.7797221, -3.7943167); // FIX: Need to get location
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       color: bPrimaryColor,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/create-orphanage');
+                      },
                       child: Icon(
                         Icons.add,
                         color: Colors.white,
