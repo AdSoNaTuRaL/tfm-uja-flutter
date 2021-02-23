@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const bPrimaryColor = Colors.green;
-const bSecondaryColor = Color(0xFFFFD666);
-const bThirdColor = Color(0xFF118ab2);
-const bFourColor = Color(0xFFef476f);
+const nPrimaryColor = Colors.blue;
+const nSecondaryColor = Color(0xFFFFD666);
+const nTextColor = Color(0xFF8FA7B2);
+
+const nAnimationDuration = Duration(milliseconds: 200);
