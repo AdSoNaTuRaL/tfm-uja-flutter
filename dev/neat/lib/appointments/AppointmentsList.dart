@@ -42,13 +42,13 @@ class AppointmentsList extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 10),
                       child: CalendarCarousel<Event>(
-                        iconColor: bFourColor,
-                        headerTextStyle: TextStyle(fontSize: 20.0, color: bFourColor),
-                        weekendTextStyle: TextStyle(color: bFourColor),
-                        weekdayTextStyle: TextStyle(color: bFourColor),
-                        todayBorderColor: Colors.grey,
-                        todayButtonColor: bPrimaryColor,
-                        thisMonthDayBorderColor: Colors.grey,
+                        iconColor: nTextColor,
+                        headerTextStyle: TextStyle(fontSize: 20.0, color: nTextColor),
+                        weekendTextStyle: TextStyle(color: nSecondaryColor),
+                        weekdayTextStyle: TextStyle(color: nTextColor),
+                        todayBorderColor: nTextColor,
+                        todayButtonColor: nTextColor,
+                        thisMonthDayBorderColor: nTextColor,
                         daysHaveCircularBorder: true,
                         markedDatesMap: markedDateMap,
                         onDayPressed: (DateTime date, List<Event> events) {
