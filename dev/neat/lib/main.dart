@@ -1,45 +1,36 @@
+import 'package:Neat/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:Neat/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'notes/Notes.dart';
-import 'appointments/Appointments.dart';
-import 'contacts/Contacts.dart';
-import 'tasks/Tasks.dart';
 
-void main() {
-  startMeUp() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    runApp(Neat());
-  }
+import 'home/home.dart';
 
-  startMeUp();
+int initScreen = 0;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  initScreen = preferences.getInt('initScreen');
+  print(initScreen);
+  await preferences.setInt("initScreen", 1);
+  runApp(Neat());
 }
 
 class Neat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Neat',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
+      debugShowCheckedModeBanner: false,
+      title: 'Neat',
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Nunito',
+        textTheme: TextTheme(
+          bodyText1: TextStyle(color: nTextColor),
+          bodyText2: TextStyle(color: nTextColor),
         ),
-        home: DefaultTabController(
-            length: 4,
-            child: Scaffold(
-                appBar: AppBar(
-                    title: Text('Neat'),
-                    bottom: TabBar(tabs: [
-                      Tab(icon: Icon(Icons.date_range), text: 'Appointments'),
-                      Tab(icon: Icon(Icons.contacts), text: 'Contacts'),
-                      Tab(icon: Icon(Icons.note), text: 'Notes'),
-                      Tab(
-                          icon: Icon(Icons.assignment_turned_in),
-                          text: 'Tasks'),
-                    ])),
-                body: TabBarView(children: [
-                  Appointments(),
-                  Contacts(),
-                  Notes(),
-                  Tasks(),
-                ]))));
+        primarySwatch: Colors.blue,
+      ),
+      home: initScreen != 1 ? OnBoarding() : Home(),
+    );
   }
 }
