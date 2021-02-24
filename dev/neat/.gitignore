@@ -3,6 +3,7 @@
 *.pyc
 *.swp
 .DS_Store
+.apk
 .atom/
 .buildlog/
 .history
