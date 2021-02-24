@@ -15,7 +15,7 @@ class OnBoardingContent extends StatelessWidget {
       children: [
         Spacer(),
         Text(
-          'neat',
+          'Neat',
           style: TextStyle(
             fontSize: getProportionateScreenHeight(48),
             color: Color(0xFFFb7484),

@@ -14,7 +14,7 @@ class _BodyState extends State<Body> {
   int currentPage = 0;
 
   List<Map<String, String>> onboardingData = [
-    {"text": "Welcome to neat", "image": "assets/images/splash_1.png"},
+    {"text": "Welcome to Neat", "image": "assets/images/splash_1.png"},
     {"text": "Create your notes, appointments, contacts and tasks", "image": "assets/images/splash_2.png"},
     {"text": "All this in one app", "image": "assets/images/splash_3.png"},
   ];
