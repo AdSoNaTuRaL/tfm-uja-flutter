@@ -10,7 +10,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
   initScreen = preferences.getInt('initScreen');
-  print(initScreen);
   await preferences.setInt("initScreen", 1);
   runApp(Neat());
 }
