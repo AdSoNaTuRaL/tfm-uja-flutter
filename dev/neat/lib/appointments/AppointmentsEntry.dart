@@ -157,7 +157,7 @@ class AppointmentsEntry extends StatelessWidget {
     }
     appointmentsModel.loadData(AppointmentsDBWorker.db);
     model.setStackIndex(0);
-    ScaffoldMessenger.of(context).showSnackBar(
+    Scaffold.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2), content: Text('Appointment saved'),

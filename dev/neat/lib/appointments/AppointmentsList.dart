@@ -169,7 +169,7 @@ class AppointmentsList extends StatelessWidget {
               onPressed: () async {
                 await AppointmentsDBWorker.db.delete(app.id);
                 Navigator.of(alertContext).pop();
-                ScaffoldMessenger.of(context).showSnackBar(
+                Scaffold.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),

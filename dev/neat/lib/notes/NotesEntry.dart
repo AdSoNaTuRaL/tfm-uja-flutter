@@ -131,7 +131,7 @@ class NotesEntry extends StatelessWidget {
     notesModel.loadData(NotesDBWorker.db);
 
     model.setStackIndex(0);
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    Scaffold.of(context).showSnackBar(SnackBar(
       backgroundColor: Colors.green,
       duration: Duration(seconds: 2),
       content: Text('Note saved'),

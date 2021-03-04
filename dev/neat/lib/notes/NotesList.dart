@@ -69,7 +69,7 @@ class NotesList extends StatelessWidget {
                     onPressed: () async {
                       await NotesDBWorker.db.delete(note.id);
                       Navigator.of(alertContext).pop();
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      Scaffold.of(context).showSnackBar(SnackBar(
                           backgroundColor: Colors.red,
                           duration: Duration(seconds: 2),
                           content: Text("Note deleted")));

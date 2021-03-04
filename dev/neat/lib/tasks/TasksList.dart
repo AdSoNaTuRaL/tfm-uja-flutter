@@ -120,7 +120,7 @@ class TasksList extends StatelessWidget {
               onPressed: () async {
                 await TasksDBWorker.db.delete(note.id);
                 Navigator.of(alertContext).pop();
-                ScaffoldMessenger.of(context).showSnackBar(
+                Scaffold.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),

@@ -137,7 +137,7 @@ class ContactsEntry extends StatelessWidget {
 
     contactsModel.loadData(ContactsDBWorker.db);
     model.setStackIndex(0);
-    ScaffoldMessenger.of(context).showSnackBar(
+    Scaffold.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2), content: Text('Contact saved'),
