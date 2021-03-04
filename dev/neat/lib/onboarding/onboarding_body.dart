@@ -63,13 +63,11 @@ class _BodyState extends State<Body> {
                     SizedBox(
                       width: double.infinity,
                       height: getProportionateScreenHeight(64),
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          primary: nPrimaryColor,
+                      child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
+                        color: nPrimaryColor,
                         onPressed: () {
                           Navigator.push(
                             context,
