@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../notes/Notes.dart';
@@ -15,12 +16,21 @@ class Home extends StatelessWidget {
           title: Text('Neat'),
           bottom: TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.date_range), text: 'Appointments'),
-              Tab(icon: Icon(Icons.contacts), text: 'Contacts'),
-              Tab(icon: Icon(Icons.note), text: 'Notes'),
+              Tab(
+                icon: Icon(Icons.date_range), 
+                text: AppLocalizations.of(context).translate('tab_text_title_appointment'),
+              ),
+              Tab(
+                icon: Icon(Icons.contacts), 
+                text: AppLocalizations.of(context).translate('tab_text_title_contact'),
+              ),
+              Tab(
+                icon: Icon(Icons.note), 
+                text: AppLocalizations.of(context).translate('tab_text_title_note'),
+              ),
               Tab(
                 icon: Icon(Icons.assignment_turned_in),
-                text: 'Tasks',
+                text: AppLocalizations.of(context).translate('tab_text_title_task'),
               ),
             ],
           ),
