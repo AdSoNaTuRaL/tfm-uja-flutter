@@ -1,0 +1,43 @@
+{
+    "tab_text_title_appointment": "Citas",
+    "tab_text_title_contact": "Contactos",
+    "tab_text_title_note": "Notas",
+    "tab_text_title_task": "Tareas",
+    
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Borrar",
+    
+    "input_description": "Descripción",
+    "input_title": "Título",
+    "input_name": "Nombre",
+    "input_phone": "Teléfono",
+    "input_email": "Correo",
+
+    "message_description": "Por favor ingrese una descripción",
+    "message_title": "Por favor ingrese un título",
+    "message_name": "Por favor ingrese un nombre",
+    
+    "due_date": "Fecha de vencimiento",
+    "birthday": "Cumpleaños",
+    "date": "Fecha",
+    "time": "Hora",
+
+    "appointment_saved": "Cita guardada",
+    "appointment_delete": "Borrar Cita",
+    "appointment_deleted": "Cita borrada",
+
+    "contact_saved": "Contacto guardado",
+    "contact_delete": "Borrar Contacto",
+    "contact_deleted": "Contacto borrado",
+    
+    "note_saved": "Nota guardada",
+    "note_delete": "Borrar Nota",
+    "note_deleted": "Nota borrada",
+
+    "task_saved": "Tarea guardada",
+    "task_delete": "Borrar Tarea",
+    "task_deleted": "Tarea borrada",
+
+    "really_delete": "¿Estás seguro de que quieres borrar"
+}

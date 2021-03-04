@@ -1,0 +1,43 @@
+{
+    "tab_text_title_appointment": "Appointments",
+    "tab_text_title_contact": "Contacts",
+    "tab_text_title_note": "Notes",
+    "tab_text_title_task": "Tasks",
+    
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    
+    "input_description": "Description",
+    "input_title": "Title",
+    "input_name": "Name",
+    "input_phone": "Phone",
+    "input_email": "Email",
+
+    "message_description": "Please enter a description",
+    "message_title": "Please enter a title",
+    "message_name": "Please enter a name",
+    
+    "due_date": "Due Date",
+    "birthday": "Birthday",
+    "date": "Date",
+    "time": "Time",
+
+    "appointment_saved": "Appointment saved",
+    "appointment_delete": "Delete Appointment",
+    "appointment_deleted": "Appointment deleted",
+
+    "contact_saved": "Contact saved",
+    "contact_delete": "Delete Contact",
+    "contact_deleted": "Contact deleted",
+    
+    "note_saved": "Note saved",
+    "note_delete": "Delete Note",
+    "note_deleted": "Note deleted",
+
+    "task_saved": "Task saved",
+    "task_delete": "Delete Task",
+    "task_deleted": "Task deleted",
+
+    "really_delete": "Are you sure you want to delete"
+}

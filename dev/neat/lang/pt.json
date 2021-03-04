@@ -1,0 +1,43 @@
+{
+    "tab_text_title_appointment": "Agendamentos",
+    "tab_text_title_contact": "Contatos",
+    "tab_text_title_note": "Notas",
+    "tab_text_title_task": "Tarefas",
+    
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Apagar",
+    
+    "input_description": "Descrição",
+    "input_title": "Título",
+    "input_name": "Nome",
+    "input_phone": "Telefone",
+    "input_email": "E-mail",
+
+    "message_description": "Por favor insira uma descrição",
+    "message_title": "Por favor insira um título",
+    "message_name": "Por favor insira um nome",
+    
+    "due_date": "Data de Vencimento",
+    "birthday": "Aniversário",
+    "date": "Data",
+    "time": "Hora",
+
+    "appointment_saved": "Agendamento salvo",
+    "appointment_delete": "Apagar Agendamento",
+    "appointment_deleted": "Agendamento apagado",
+
+    "contact_saved": "Contato salvo",
+    "contact_delete": "Apagar Contato",
+    "contact_deleted": "Contato apagado",
+    
+    "note_saved": "Nota salva",
+    "note_delete": "Apagar Nota",
+    "note_deleted": "Nota apagada",
+
+    "task_saved": "Tarefa salva",
+    "task_delete": "Apagar Tarefa",
+    "task_deleted": "Tarefa apagada",
+
+    "really_delete": "Tem certeza que deseja apagar"
+}
