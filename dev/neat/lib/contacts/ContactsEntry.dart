@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'ContactsDBWorker.dart';
@@ -44,7 +45,7 @@ class ContactsEntry extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton(
-                      child: Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).translate('cancel')),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         model.setStackIndex(0);
@@ -52,7 +53,7 @@ class ContactsEntry extends StatelessWidget {
                     ),
                     Spacer(),
                     TextButton(
-                      child: Text('Save'),
+                      child: Text(AppLocalizations.of(context).translate('save')),
                       onPressed: () {
                         _save(context, model);
                       },
@@ -67,11 +68,11 @@ class ContactsEntry extends StatelessWidget {
                     ListTile(
                         leading: Icon(Icons.person),
                         title: TextFormField(
-                            decoration: InputDecoration(hintText: 'Name'),
+                            decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_name')),
                             controller: _nameEditingController,
                             validator: (String value) {
                               if (value.length == 0) {
-                                return 'Please enter a name';
+                                return AppLocalizations.of(context).translate('message_name');
                               }
                               return null;
                             }
@@ -83,7 +84,7 @@ class ContactsEntry extends StatelessWidget {
                       leading: Icon(Icons.phone),
                       title: TextFormField(
                         keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(hintText: "Phone"),
+                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_phone')),
                         controller: _phoneEditingController,
                       )
                     ),
@@ -92,14 +93,14 @@ class ContactsEntry extends StatelessWidget {
                       leading: Icon(Icons.email),
                       title: TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(hintText: "Email"),
+                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_email')),
                         controller: _emailEditingController,
                       ),
                     ),
 
                     ListTile(
                       leading: Icon(Icons.today),
-                      title: Text("Birthday"),
+                      title: Text(AppLocalizations.of(context).translate('birthday')),
                       subtitle: Text(contactsModel.chosenDate == null ? "" : contactsModel.chosenDate),
                       trailing: IconButton(
                           icon: Icon(Icons.edit),
@@ -140,7 +141,7 @@ class ContactsEntry extends StatelessWidget {
     Scaffold.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
-            duration: Duration(seconds: 2), content: Text('Contact saved'),
+            duration: Duration(seconds: 2), content: Text(AppLocalizations.of(context).translate('contact_saved')),
         )
     );
   }

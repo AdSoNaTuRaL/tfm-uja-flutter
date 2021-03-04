@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'TasksDBWorker.dart';
@@ -34,7 +35,7 @@ class TasksEntry extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton(
-                      child: Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).translate('cancel')),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         model.setStackIndex(0);
@@ -42,7 +43,7 @@ class TasksEntry extends StatelessWidget {
                     ),
                     Spacer(),
                     TextButton(
-                      child: Text('Save'),
+                      child: Text(AppLocalizations.of(context).translate('save')),
                       onPressed: () {
                         _save(context, tasksModel);
                       },
@@ -59,11 +60,11 @@ class TasksEntry extends StatelessWidget {
                       title: TextFormField(
                         keyboardType: TextInputType.multiline,
                         maxLines: 8,
-                        decoration: InputDecoration(hintText: 'Description'),
+                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
                         controller: _descriptionEditingController,
                         validator: (String value) {
                           if (value.length == 0) {
-                            return 'Please enter a description';
+                            return AppLocalizations.of(context).translate('message_description');
                           }
                           return null;
                         }
@@ -71,7 +72,7 @@ class TasksEntry extends StatelessWidget {
                     ),
                     ListTile(
                       leading: Icon(Icons.today),
-                      title: Text("Due Date"),
+                      title: Text(AppLocalizations.of(context).translate('due_date')),
                       subtitle: Text(_dueDate()), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
                       trailing: IconButton(
                         icon: Icon(Icons.edit),
@@ -115,7 +116,7 @@ class TasksEntry extends StatelessWidget {
     Scaffold.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
-            duration: Duration(seconds: 2), content: Text('Task saved'),
+            duration: Duration(seconds: 2), content: Text(AppLocalizations.of(context).translate('task_saved')),
         )
     );
   }

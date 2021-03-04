@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -43,6 +44,7 @@ class AppointmentsList extends StatelessWidget {
                       margin: EdgeInsets.symmetric(horizontal: 10),
                       child: CalendarCarousel<Event>(
                         iconColor: nTextColor,
+                        locale: Localizations.localeOf(context).languageCode,
                         headerTextStyle: TextStyle(fontSize: 20.0, color: nTextColor),
                         weekendTextStyle: TextStyle(color: nSecondaryColor),
                         weekdayTextStyle: TextStyle(color: nTextColor),
@@ -113,7 +115,7 @@ class AppointmentsList extends StatelessWidget {
                                           ),
                                           secondaryActions: <Widget>[
                                             IconSlideAction(
-                                              caption: "Delete",
+                                              caption: AppLocalizations.of(context).translate('delete'),
                                               color: Colors.red,
                                               icon: Icons.delete,
                                               onTap: () => _deleteAppointment(context, app),
@@ -157,15 +159,15 @@ class AppointmentsList extends StatelessWidget {
       barrierDismissible: false,
       builder: (BuildContext alertContext) {
         return AlertDialog(
-          title: Text('Delete Appointment'),
-          content: Text('Really delete ${app.title}?'),
+          title: Text(AppLocalizations.of(context).translate('appointment_delete')),
+          content: Text('${AppLocalizations.of(context).translate('really_delete')} ${app.title}?'),
           actions: [
             TextButton(
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).translate('cancel')),
               onPressed: () { Navigator.of(alertContext).pop(); },
             ),
             TextButton(
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).translate('delete')),
               onPressed: () async {
                 await AppointmentsDBWorker.db.delete(app.id);
                 Navigator.of(alertContext).pop();
@@ -173,7 +175,7 @@ class AppointmentsList extends StatelessWidget {
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),
-                    content: Text('Appointment deleted'),
+                    content: Text(AppLocalizations.of(context).translate('appointment_deleted')),
                   )
                 );
                 appointmentsModel.loadData(AppointmentsDBWorker.db);

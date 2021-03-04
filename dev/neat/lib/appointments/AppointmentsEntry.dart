@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'AppointmentsDBWorker.dart';
@@ -40,7 +41,7 @@ class AppointmentsEntry extends StatelessWidget {
                 child: Row(
                   children: [
                     TextButton(
-                      child: Text('Cancel'),
+                      child: Text(AppLocalizations.of(context).translate('cancel')),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
                         model.setStackIndex(0);
@@ -48,7 +49,7 @@ class AppointmentsEntry extends StatelessWidget {
                     ),
                     Spacer(),
                     TextButton(
-                      child: Text('Save'),
+                      child: Text(AppLocalizations.of(context).translate('save')),
                       onPressed: () {
                         _save(context, appointmentsModel);
                       },
@@ -63,11 +64,11 @@ class AppointmentsEntry extends StatelessWidget {
                     ListTile(
                         leading: Icon(Icons.title),
                         title: TextFormField(
-                          decoration: InputDecoration(hintText: 'Title'),
+                          decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_title')),
                           controller: _titleEditingController,
                           validator: (String value) {
                             if (value.length == 0) {
-                              return 'Please enter a title';
+                              return AppLocalizations.of(context).translate('message_title');
                             }
                             return null;
                           },
@@ -79,11 +80,11 @@ class AppointmentsEntry extends StatelessWidget {
                         title: TextFormField(
                             keyboardType: TextInputType.multiline,
                             maxLines: 8,
-                            decoration: InputDecoration(hintText: 'Description'),
+                            decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
                             controller: _descriptionEditingController,
                             validator: (String value) {
                               if (value.length == 0) {
-                                return 'Please enter a description';
+                                return AppLocalizations.of(context).translate('message_description');
                               }
                               return null;
                             }
@@ -93,7 +94,7 @@ class AppointmentsEntry extends StatelessWidget {
 
                     ListTile(
                       leading: Icon(Icons.today),
-                      title: Text("Date"),
+                      title: Text(AppLocalizations.of(context).translate('date')),
                       subtitle: Text(_date()), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
                       trailing: IconButton(
                         icon: Icon(Icons.edit),
@@ -110,7 +111,7 @@ class AppointmentsEntry extends StatelessWidget {
 
                     ListTile(
                       leading: Icon(Icons.alarm),
-                      title: Text("Time"),
+                      title: Text(AppLocalizations.of(context).translate('time')),
                       subtitle: Text(appointmentsModel.time ?? ''),
                       trailing: IconButton(
                         icon: Icon(Icons.edit),
@@ -160,7 +161,7 @@ class AppointmentsEntry extends StatelessWidget {
     Scaffold.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
-            duration: Duration(seconds: 2), content: Text('Appointment saved'),
+            duration: Duration(seconds: 2), content: Text(AppLocalizations.of(context).translate('appointment_saved')),
         )
     );
   }

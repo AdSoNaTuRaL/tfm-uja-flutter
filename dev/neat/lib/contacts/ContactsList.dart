@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -60,7 +61,7 @@ class ContactsList extends StatelessWidget {
                                 ),
                                 secondaryActions: <Widget>[
                                   IconSlideAction(
-                                    caption: "Delete",
+                                    caption: AppLocalizations.of(context).translate('delete'),
                                     color: Colors.red,
                                     icon: Icons.delete,
                                     onTap: () => _deleteContact(context, contact),
@@ -84,15 +85,15 @@ class ContactsList extends StatelessWidget {
       barrierDismissible: false,
       builder: (BuildContext alertContext) {
         return AlertDialog(
-          title: Text('Delete Contact'),
-          content: Text('Really delete ${contact.name}?'),
+          title: Text(AppLocalizations.of(context).translate('contact_delete')),
+          content: Text('${AppLocalizations.of(context).translate('really_delete')} ${contact.name}?'),
           actions: [
             TextButton(
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).translate('cancel')),
               onPressed: () { Navigator.of(alertContext).pop(); },
             ),
             TextButton(
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).translate('delete')),
               onPressed: () async {
                 await ContactsDBWorker.db.delete(contact.id);
                 Navigator.of(alertContext).pop();
@@ -100,7 +101,7 @@ class ContactsList extends StatelessWidget {
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),
-                    content: Text('Contact deleted'),
+                    content: Text(AppLocalizations.of(context).translate('contact_deleted')),
                   )
                 );
                 contactsModel.loadData(ContactsDBWorker.db);
