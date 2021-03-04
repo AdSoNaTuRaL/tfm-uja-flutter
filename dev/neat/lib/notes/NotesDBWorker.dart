@@ -46,7 +46,7 @@ class _SqfliteNotesDBWorker implements NotesDBWorker {
   @override
   Future<void> delete(int id) async {
     Database db = await database;
-    return await db.delete("notes", where: "id = ?", whereArgs: [id]);
+    return await db.delete("notes", where: "$KEY_ID = ?", whereArgs: [id]);
   }
 
   @override
