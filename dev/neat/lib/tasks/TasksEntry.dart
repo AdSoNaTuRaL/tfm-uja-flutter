@@ -33,7 +33,7 @@ class TasksEntry extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 child: Row(
                   children: [
-                    FlatButton(
+                    TextButton(
                       child: Text('Cancel'),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
@@ -41,7 +41,7 @@ class TasksEntry extends StatelessWidget {
                       },
                     ),
                     Spacer(),
-                    FlatButton(
+                    TextButton(
                       child: Text('Save'),
                       onPressed: () {
                         _save(context, tasksModel);
@@ -112,7 +112,7 @@ class TasksEntry extends StatelessWidget {
     }
     tasksModel.loadData(TasksDBWorker.db);
     model.setStackIndex(0);
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2), content: Text('Task saved'),

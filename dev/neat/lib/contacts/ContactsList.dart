@@ -87,16 +87,16 @@ class ContactsList extends StatelessWidget {
           title: Text('Delete Contact'),
           content: Text('Really delete ${contact.name}?'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('Cancel'),
               onPressed: () { Navigator.of(alertContext).pop(); },
             ),
-            FlatButton(
+            TextButton(
               child: Text('Delete'),
               onPressed: () async {
                 await ContactsDBWorker.db.delete(contact.id);
                 Navigator.of(alertContext).pop();
-                Scaffold.of(context).showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),

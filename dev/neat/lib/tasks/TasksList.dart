@@ -111,16 +111,16 @@ class TasksList extends StatelessWidget {
           title: Text('Delete Task'),
           content: Text('Really delete ${note.description}?'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('Cancel'),
               onPressed: () { Navigator.of(alertContext).pop(); },
             ),
-            FlatButton(
+            TextButton(
               child: Text('Delete'),
               onPressed: () async {
                 await TasksDBWorker.db.delete(note.id);
                 Navigator.of(alertContext).pop();
-                Scaffold.of(context).showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),

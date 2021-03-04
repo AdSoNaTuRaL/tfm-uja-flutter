@@ -39,7 +39,7 @@ class AppointmentsEntry extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 child: Row(
                   children: [
-                    FlatButton(
+                    TextButton(
                       child: Text('Cancel'),
                       onPressed: () {
                         FocusScope.of(context).requestFocus(FocusNode());
@@ -47,7 +47,7 @@ class AppointmentsEntry extends StatelessWidget {
                       },
                     ),
                     Spacer(),
-                    FlatButton(
+                    TextButton(
                       child: Text('Save'),
                       onPressed: () {
                         _save(context, appointmentsModel);
@@ -157,7 +157,7 @@ class AppointmentsEntry extends StatelessWidget {
     }
     appointmentsModel.loadData(AppointmentsDBWorker.db);
     model.setStackIndex(0);
-    Scaffold.of(context).showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2), content: Text('Appointment saved'),

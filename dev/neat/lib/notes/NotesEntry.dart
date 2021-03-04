@@ -101,7 +101,7 @@ class NotesEntry extends StatelessWidget {
 
   Row _buildControlButtons(BuildContext context, NotesModel model) {
     return Row(children: [
-      FlatButton(
+      TextButton(
         child: Text('Cancel'),
         onPressed: () {
           FocusScope.of(context).requestFocus(FocusNode());
@@ -109,7 +109,7 @@ class NotesEntry extends StatelessWidget {
         },
       ),
       Spacer(),
-      FlatButton(
+      TextButton(
         child: Text('Save'),
         onPressed: () {
           _save(context, notesModel);
@@ -131,7 +131,7 @@ class NotesEntry extends StatelessWidget {
     notesModel.loadData(NotesDBWorker.db);
 
     model.setStackIndex(0);
-    Scaffold.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       backgroundColor: Colors.green,
       duration: Duration(seconds: 2),
       content: Text('Note saved'),
