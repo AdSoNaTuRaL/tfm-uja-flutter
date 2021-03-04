@@ -31,7 +31,7 @@ class AppointmentsList extends StatelessWidget {
                     appointmentsModel.entityBeingEdited = Appointment();
                     DateTime now = DateTime.now();
                     appointmentsModel.entityBeingEdited.date =
-                    "${now.year},${now.month},${now.day}";
+                    "${now.day}/${now.month}/${now.year}";
                     appointmentsModel.setDate(formatDate(now, context));
                     appointmentsModel.setTime(null);
                     appointmentsModel.setStackIndex(1);
@@ -91,7 +91,7 @@ class AppointmentsList extends StatelessWidget {
                                       itemCount: appointmentsModel.entityList.length,
                                       itemBuilder: (BuildContext context, int index) {
                                         Appointment app = appointmentsModel.entityList[index];
-                                        if (app.date != "${date.year},${date.month},${date.day}") {
+                                        if (app.date != "${date.day}/${date.month}/${date.year}") {
                                           return Container(height: 0);
                                         }
                                         String time = "";

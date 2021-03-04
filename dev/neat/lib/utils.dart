@@ -11,7 +11,7 @@ Future<String> selectDate(BuildContext context, dynamic model, String date) asyn
   if (picked != null) {
     model.setChosenDate(DateFormat.yMMMMd(Localizations.localeOf(context).toLanguageTag()).format(picked.toLocal()));
   }
-  return "${picked.year},${picked.month},${picked.day}";
+  return "${picked.day}/${picked.month}/${picked.year}";
 }
 
 Color toColor(String color) {
@@ -34,8 +34,8 @@ Color toColor(String color) {
 }
 
 DateTime toDate(String date) {
-  List<String> parts = date.split(",");
-  return DateTime(int.parse(parts[0]), int.parse(parts[1]), int.parse(parts[2]));
+  List<String> parts = date.split("/");
+  return DateTime(int.parse(parts[2]), int.parse(parts[1]), int.parse(parts[0]));
 }
 
 String toFormattedDate(String date, BuildContext context) {
