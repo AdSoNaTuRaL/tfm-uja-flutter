@@ -1,5 +1,7 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:Neat/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:Neat/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +31,27 @@ class Neat extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
+      supportedLocales: [
+        Locale('es', 'ES'),
+        Locale('en', 'US'),
+        Locale('pt', 'BR'),
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+                return supportedLocale;
+              }
+        }
+
+        return supportedLocales.first;
+      },
       home: initScreen != 1 ? OnBoarding() : Home(),
     );
   }
