@@ -29,7 +29,7 @@ class TasksList extends StatelessWidget {
                     Task task = tasksModel.entityList[index];
                     String dueDate;
                     if (task.dueDate != null) {
-                      dueDate = toFormattedDate(task.dueDate);
+                      dueDate = toFormattedDate(task.dueDate, context);
                     }
                     return Container(
                       padding: EdgeInsets.fromLTRB(20, 20, 20, 0),

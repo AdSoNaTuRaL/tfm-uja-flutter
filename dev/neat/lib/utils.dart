@@ -9,7 +9,7 @@ Future<String> selectDate(BuildContext context, dynamic model, String date) asyn
       firstDate: DateTime(1900),
       lastDate: DateTime(2100));
   if (picked != null) {
-    model.setChosenDate(DateFormat.yMMMMd('en_US').format(picked.toLocal()));
+    model.setChosenDate(DateFormat.yMMMMd(Localizations.localeOf(context).toLanguageTag()).format(picked.toLocal()));
   }
   return "${picked.year},${picked.month},${picked.day}";
 }
@@ -38,12 +38,12 @@ DateTime toDate(String date) {
   return DateTime(int.parse(parts[0]), int.parse(parts[1]), int.parse(parts[2]));
 }
 
-String toFormattedDate(String date) {
-  return formatDate(toDate(date));
+String toFormattedDate(String date, BuildContext context) {
+  return formatDate(toDate(date), context);
 }
 
-String formatDate(DateTime date) {
-  return DateFormat.yMMMMd("en_US").format(date.toLocal());
+String formatDate(DateTime date, BuildContext context) {
+  return DateFormat.yMMMMd(Localizations.localeOf(context).toLanguageTag()).format(date.toLocal());
 }
 
 TimeOfDay toTime(String time) {

@@ -32,7 +32,7 @@ class AppointmentsList extends StatelessWidget {
                     DateTime now = DateTime.now();
                     appointmentsModel.entityBeingEdited.date =
                     "${now.year},${now.month},${now.day}";
-                    appointmentsModel.setDate(formatDate(now));
+                    appointmentsModel.setDate(formatDate(now, context));
                     appointmentsModel.setTime(null);
                     appointmentsModel.setStackIndex(1);
                   }
@@ -82,7 +82,7 @@ class AppointmentsList extends StatelessWidget {
                           child: GestureDetector(
                             child: Column(
                               children: <Widget>[
-                                Text(formatDate(date),
+                                Text(formatDate(date, context),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(color: Theme.of(context).accentColor, fontSize: 24)),
                                 Divider(),
@@ -142,7 +142,7 @@ class AppointmentsList extends StatelessWidget {
     if (appointmentsModel.entityBeingEdited.date == null) {
       appointmentsModel.setDate(null);
     } else {
-      appointmentsModel.setDate(toFormattedDate(appointmentsModel.entityBeingEdited.date));
+      appointmentsModel.setDate(toFormattedDate(appointmentsModel.entityBeingEdited.date, context));
     }
     if (appointmentsModel.entityBeingEdited.time == null) {
       appointmentsModel.setTime(null);

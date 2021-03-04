@@ -54,7 +54,7 @@ class ContactsList extends StatelessWidget {
                                         contactsModel.setBirthday(
                                             utils.toFormattedDate(
                                                 contactsModel.entityBeingEdited
-                                                    .birthday));
+                                                    .birthday, context));
                                       }
                                       contactsModel.setStackIndex(1);
                                     }
