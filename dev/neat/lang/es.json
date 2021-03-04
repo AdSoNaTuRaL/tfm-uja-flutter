@@ -39,5 +39,9 @@
     "task_delete": "Borrar Tarea",
     "task_deleted": "Tarea borrada",
 
-    "really_delete": "¿Estás seguro de que quieres borrar"
+    "really_delete": "¿Estás seguro de que quieres borrar",
+
+    "splash_0": "Bienvenido a Neat",
+    "splash_1": "Crea tus notas, citas, contactos y tareas",
+    "splash_2": "Todo esto en una sola aplicación"
 }

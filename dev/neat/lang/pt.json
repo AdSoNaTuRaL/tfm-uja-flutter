@@ -39,5 +39,9 @@
     "task_delete": "Apagar Tarefa",
     "task_deleted": "Tarefa apagada",
 
-    "really_delete": "Tem certeza que deseja apagar"
+    "really_delete": "Tem certeza que deseja apagar",
+
+    "splash_0": "Bem-vindo a Neat",
+    "splash_1": "Crie suas notas, agendamentos, contatos e tarefas",
+    "splash_2": "Tudo isso em um só app"
 }

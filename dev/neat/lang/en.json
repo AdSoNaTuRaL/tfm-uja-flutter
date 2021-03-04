@@ -39,5 +39,9 @@
     "task_delete": "Delete Task",
     "task_deleted": "Task deleted",
 
-    "really_delete": "Are you sure you want to delete"
+    "really_delete": "Are you sure you want to delete",
+
+    "splash_0": "Welcome to Neat",
+    "splash_1": "Create your notes, appointments, contacts and tasks",
+    "splash_2": "All this in one app"
 }

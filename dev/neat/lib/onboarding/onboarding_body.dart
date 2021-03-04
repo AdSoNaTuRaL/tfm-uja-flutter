@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:Neat/constants.dart';
 import 'package:Neat/home/home.dart';
 import 'package:flutter/material.dart';
@@ -12,15 +13,16 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   int currentPage = 0;
-
-  List<Map<String, String>> onboardingData = [
-    {"text": "Welcome to Neat", "image": "assets/images/splash_1.png"},
-    {"text": "Create your notes, appointments, contacts and tasks", "image": "assets/images/splash_2.png"},
-    {"text": "All this in one app", "image": "assets/images/splash_3.png"},
-  ];
+  BuildContext context;
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, String>> onboardingData = [
+      {"text": '${AppLocalizations.of(context).translate('splash_0')}', "image": "assets/images/splash_1.png"},
+      {"text": '${AppLocalizations.of(context).translate('splash_1')}', "image": "assets/images/splash_2.png"},
+      {"text": '${AppLocalizations.of(context).translate('splash_2')}', "image": "assets/images/splash_3.png"},
+    ];
+
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
