@@ -52,7 +52,7 @@ class _SqfliteNotesDBWorker implements NotesDBWorker {
   @override
   Future<Note> get(int id) async {
     Database db = await database;
-    var values = await db.query("notes", where: "id = ?", whereArgs: [id]);
+    var values = await db.query("notes", where: "$KEY_ID = ?", whereArgs: [id]);
     return values.isEmpty ? null : _noteFromMap(values.first);
   }
 
