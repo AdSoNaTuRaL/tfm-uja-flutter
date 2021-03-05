@@ -25,5 +25,4 @@ class Appointments extends StatelessWidget {
       )
     );
   }
-
 }
