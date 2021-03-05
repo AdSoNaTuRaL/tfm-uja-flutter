@@ -6,9 +6,9 @@ import 'AppointmentsModel.dart';
 import '../utils.dart';
 
 class AppointmentsEntry extends StatelessWidget {
-
   final TextEditingController _titleEditingController = TextEditingController();
-  final TextEditingController _descriptionEditingController = TextEditingController();
+  final TextEditingController _descriptionEditingController =
+      TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -17,7 +17,8 @@ class AppointmentsEntry extends StatelessWidget {
       appointmentsModel.entityBeingEdited.title = _titleEditingController.text;
     });
     _descriptionEditingController.addListener(() {
-      appointmentsModel.entityBeingEdited.description = _descriptionEditingController.text;
+      appointmentsModel.entityBeingEdited.description =
+          _descriptionEditingController.text;
     });
   }
 
@@ -26,104 +27,123 @@ class AppointmentsEntry extends StatelessWidget {
     return ScopedModel<AppointmentsModel>(
       model: appointmentsModel,
       child: ScopedModelDescendant<AppointmentsModel>(
-          builder: (BuildContext context, Widget child, AppointmentsModel model) {
-
-            //- Correction:
-            // add the following two lines for "editing" an existing note
-            if (model.entityBeingEdited != null) {
-              _titleEditingController.text = model.entityBeingEdited.title;
-              _descriptionEditingController.text = model.entityBeingEdited.description;
-            }
-
-            return Scaffold(
-              bottomNavigationBar: Padding(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                child: Row(
-                  children: [
-                    TextButton(
-                      child: Text(AppLocalizations.of(context).translate('cancel')),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        model.setStackIndex(0);
-                      },
-                    ),
-                    Spacer(),
-                    TextButton(
-                      child: Text(AppLocalizations.of(context).translate('save')),
-                      onPressed: () {
-                        _save(context, appointmentsModel);
-                      },
-                    )
-                  ]
-                )
-              ),
-              body: Form(
-                key: _formKey,
-                child: ListView(
-                  children: [
-                    ListTile(
-                        leading: Icon(Icons.title),
-                        title: TextFormField(
-                          decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_title')),
-                          controller: _titleEditingController,
-                          validator: (String value) {
-                            if (value.length == 0) {
-                              return AppLocalizations.of(context).translate('message_title');
-                            }
-                            return null;
-                          },
-                        )
-                    ),
-
-                    ListTile(
-                        leading: Icon(Icons.content_paste),
-                        title: TextFormField(
-                            keyboardType: TextInputType.multiline,
-                            maxLines: 8,
-                            decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
-                            controller: _descriptionEditingController,
-                            validator: (String value) {
-                              if (value.length == 0) {
-                                return AppLocalizations.of(context).translate('message_description');
-                              }
-                              return null;
-                            }
-                        )
-
-                    ),
-
-                    ListTile(
-                      leading: Icon(Icons.today),
-                      title: Text(AppLocalizations.of(context).translate('date')),
-                      subtitle: Text(_date()), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
-                      trailing: IconButton(
-                        icon: Icon(Icons.edit),
-                        color: Colors.green[900],
-                        onPressed: () async {
-                          String chosenDate = await selectDate(context, appointmentsModel,
-                              appointmentsModel.entityBeingEdited.date);
-                          if (chosenDate != null) {
-                            appointmentsModel.entityBeingEdited.date = chosenDate;
-                          }
-                        },
-                      ),
-                    ),
-
-                    ListTile(
-                      leading: Icon(Icons.alarm),
-                      title: Text(AppLocalizations.of(context).translate('time')),
-                      subtitle: Text(appointmentsModel.time ?? ''),
-                      trailing: IconButton(
-                        icon: Icon(Icons.edit),
-                        color: Colors.green[900],
-                        onPressed: () => _selectTime(context)
-                      )
-                    )
-                  ]
-                )
-              )
-            );
+        builder: (BuildContext context, Widget child, AppointmentsModel model) {
+          //- Correction:
+          // add the following two lines for "editing" an existing note
+          if (model.entityBeingEdited != null) {
+            _titleEditingController.text = model.entityBeingEdited.title;
+            _descriptionEditingController.text =
+                model.entityBeingEdited.description;
           }
+
+          return Scaffold(
+            bottomNavigationBar: Padding(
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+              child: Row(
+                children: [
+                  TextButton(
+                    child: Text(
+                      AppLocalizations.of(context).translate('cancel'),
+                    ),
+                    onPressed: () {
+                      FocusScope.of(context).requestFocus(
+                        FocusNode(),
+                      );
+                      model.setStackIndex(0);
+                    },
+                  ),
+                  Spacer(),
+                  TextButton(
+                    child: Text(
+                      AppLocalizations.of(context).translate('save'),
+                    ),
+                    onPressed: () {
+                      _save(context, appointmentsModel);
+                    },
+                  )
+                ],
+              ),
+            ),
+            body: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.title),
+                    title: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)
+                            .translate('input_title'),
+                      ),
+                      controller: _titleEditingController,
+                      validator: (String value) {
+                        if (value.length == 0) {
+                          return AppLocalizations.of(context)
+                              .translate('message_title');
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.content_paste),
+                    title: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 8,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)
+                            .translate('input_description'),
+                      ),
+                      controller: _descriptionEditingController,
+                      validator: (String value) {
+                        if (value.length == 0) {
+                          return AppLocalizations.of(context)
+                              .translate('message_description');
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.today),
+                    title: Text(
+                      AppLocalizations.of(context).translate('date'),
+                    ),
+                    subtitle: Text(
+                      _date(),
+                    ), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
+                    trailing: IconButton(
+                      icon: Icon(Icons.edit),
+                      color: Colors.green[900],
+                      onPressed: () async {
+                        String chosenDate = await selectDate(
+                          context,
+                          appointmentsModel,
+                          appointmentsModel.entityBeingEdited.date,
+                        );
+                        if (chosenDate != null) {
+                          appointmentsModel.entityBeingEdited.date = chosenDate;
+                        }
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.alarm),
+                    title: Text(
+                      AppLocalizations.of(context).translate('time'),
+                    ),
+                    subtitle: Text(appointmentsModel.time ?? ''),
+                    trailing: IconButton(
+                      icon: Icon(Icons.edit),
+                      color: Colors.green[900],
+                      onPressed: () => _selectTime(context),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -133,10 +153,14 @@ class AppointmentsEntry extends StatelessWidget {
     if (appointmentsModel.entityBeingEdited.time != null) {
       initialTime = toTime(appointmentsModel.entityBeingEdited.time);
     }
-    TimeOfDay picked = await showTimePicker(context: context, initialTime: initialTime);
+    TimeOfDay picked =
+        await showTimePicker(context: context, initialTime: initialTime);
     if (picked != null) {
-      appointmentsModel.entityBeingEdited.time = "${picked.hour},${picked.minute}";
-      appointmentsModel.setTime(picked.format(context));
+      appointmentsModel.entityBeingEdited.time =
+          "${picked.hour},${picked.minute}";
+      appointmentsModel.setTime(
+        picked.format(context),
+      );
     }
   }
 
@@ -159,10 +183,13 @@ class AppointmentsEntry extends StatelessWidget {
     appointmentsModel.loadData(AppointmentsDBWorker.db);
     model.setStackIndex(0);
     Scaffold.of(context).showSnackBar(
-        SnackBar(
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2), content: Text(AppLocalizations.of(context).translate('appointment_saved')),
-        )
+      SnackBar(
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+        content: Text(
+          AppLocalizations.of(context).translate('appointment_saved'),
+        ),
+      ),
     );
   }
 }

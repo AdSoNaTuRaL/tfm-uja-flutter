@@ -6,7 +6,6 @@ import 'ContactsDBWorker.dart';
 import 'ContactsList.dart';
 
 class Contacts extends StatelessWidget {
-
   Contacts() {
     contactsModel.loadData(ContactsDBWorker.db);
   }
@@ -16,13 +15,13 @@ class Contacts extends StatelessWidget {
     return ScopedModel<ContactsModel>(
       model: contactsModel,
       child: ScopedModelDescendant<ContactsModel>(
-          builder: (BuildContext context, Widget child, ContactsModel model) {
-            return IndexedStack(
-              index: model.stackIndex,
-              children: <Widget>[ ContactsList(), ContactsEntry()],
-            );
-          }
-      )
+        builder: (BuildContext context, Widget child, ContactsModel model) {
+          return IndexedStack(
+            index: model.stackIndex,
+            children: <Widget>[ContactsList(), ContactsEntry()],
+          );
+        },
+      ),
     );
   }
 }

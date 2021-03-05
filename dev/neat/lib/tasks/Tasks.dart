@@ -6,7 +6,6 @@ import 'TasksDBWorker.dart';
 import 'TasksList.dart';
 
 class Tasks extends StatelessWidget {
-
   Tasks() {
     tasksModel.loadData(TasksDBWorker.db);
   }
@@ -16,13 +15,13 @@ class Tasks extends StatelessWidget {
     return ScopedModel<TasksModel>(
       model: tasksModel,
       child: ScopedModelDescendant<TasksModel>(
-          builder: (BuildContext context, Widget child, TasksModel model) {
-            return IndexedStack(
-              index: model.stackIndex,
-              children: <Widget>[ TasksList(), TasksEntry()],
-            );
-          }
-      )
+        builder: (BuildContext context, Widget child, TasksModel model) {
+          return IndexedStack(
+            index: model.stackIndex,
+            children: <Widget>[TasksList(), TasksEntry()],
+          );
+        },
+      ),
     );
   }
 }

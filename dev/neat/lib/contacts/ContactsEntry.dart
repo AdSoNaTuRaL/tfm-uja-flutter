@@ -6,7 +6,6 @@ import 'ContactsModel.dart';
 import '../utils.dart' as utils;
 
 class ContactsEntry extends StatelessWidget {
-
   final TextEditingController _nameEditingController = TextEditingController();
   final TextEditingController _phoneEditingController = TextEditingController();
   final TextEditingController _emailEditingController = TextEditingController();
@@ -30,94 +29,114 @@ class ContactsEntry extends StatelessWidget {
     return ScopedModel<ContactsModel>(
       model: contactsModel,
       child: ScopedModelDescendant<ContactsModel>(
-          builder: (BuildContext context, Widget child, ContactsModel model) {
-
-            if (model.entityBeingEdited != null) {
-              _nameEditingController.text = model.entityBeingEdited.name;
-              _phoneEditingController.text = model.entityBeingEdited.phone;
-              _emailEditingController.text = model.entityBeingEdited.email;
-            }
-
-
-            return Scaffold(
-              bottomNavigationBar: Padding(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                child: Row(
-                  children: [
-                    TextButton(
-                      child: Text(AppLocalizations.of(context).translate('cancel')),
-                      onPressed: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        model.setStackIndex(0);
-                      },
-                    ),
-                    Spacer(),
-                    TextButton(
-                      child: Text(AppLocalizations.of(context).translate('save')),
-                      onPressed: () {
-                        _save(context, model);
-                      },
-                    )
-                  ]
-                )
-              ),
-              body: Form(
-                key: _formKey,
-                child: ListView(
-                  children: [
-                    ListTile(
-                        leading: Icon(Icons.person),
-                        title: TextFormField(
-                            decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_name')),
-                            controller: _nameEditingController,
-                            validator: (String value) {
-                              if (value.length == 0) {
-                                return AppLocalizations.of(context).translate('message_name');
-                              }
-                              return null;
-                            }
-                        )
-
-                    ),
-
-                    ListTile(
-                      leading: Icon(Icons.phone),
-                      title: TextFormField(
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_phone')),
-                        controller: _phoneEditingController,
-                      )
-                    ),
-
-                    ListTile(
-                      leading: Icon(Icons.email),
-                      title: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_email')),
-                        controller: _emailEditingController,
-                      ),
-                    ),
-
-                    ListTile(
-                      leading: Icon(Icons.today),
-                      title: Text(AppLocalizations.of(context).translate('birthday')),
-                      subtitle: Text(contactsModel.chosenDate == null ? "" : contactsModel.chosenDate),
-                      trailing: IconButton(
-                          icon: Icon(Icons.edit),
-                          color: Colors.blue,
-                          onPressed: () async {
-                            String chosenDate = await utils.selectDate(context,
-                                contactsModel, contactsModel.entityBeingEdited.birthday);
-                            if (chosenDate != null) {
-                              contactsModel.entityBeingEdited.birthday = chosenDate;
-                            }
-                          }),
-                    )
-                  ]
-                )
-              )
-            );
+        builder: (BuildContext context, Widget child, ContactsModel model) {
+          if (model.entityBeingEdited != null) {
+            _nameEditingController.text = model.entityBeingEdited.name;
+            _phoneEditingController.text = model.entityBeingEdited.phone;
+            _emailEditingController.text = model.entityBeingEdited.email;
           }
+
+          return Scaffold(
+            bottomNavigationBar: Padding(
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+              child: Row(
+                children: [
+                  TextButton(
+                    child: Text(
+                      AppLocalizations.of(context).translate('cancel'),
+                    ),
+                    onPressed: () {
+                      FocusScope.of(context).requestFocus(
+                        FocusNode(),
+                      );
+                      model.setStackIndex(0);
+                    },
+                  ),
+                  Spacer(),
+                  TextButton(
+                    child: Text(
+                      AppLocalizations.of(context).translate('save'),
+                    ),
+                    onPressed: () {
+                      _save(context, model);
+                    },
+                  ),
+                ],
+              ),
+            ),
+            body: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.person),
+                    title: TextFormField(
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)
+                            .translate('input_name'),
+                      ),
+                      controller: _nameEditingController,
+                      validator: (String value) {
+                        if (value.length == 0) {
+                          return AppLocalizations.of(context)
+                              .translate('message_name');
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: TextFormField(
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)
+                            .translate('input_phone'),
+                      ),
+                      controller: _phoneEditingController,
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)
+                            .translate('input_email'),
+                      ),
+                      controller: _emailEditingController,
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.today),
+                    title: Text(
+                      AppLocalizations.of(context).translate('birthday'),
+                    ),
+                    subtitle: Text(
+                      contactsModel.chosenDate == null
+                          ? ""
+                          : contactsModel.chosenDate,
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.edit),
+                      color: Colors.blue,
+                      onPressed: () async {
+                        String chosenDate = await utils.selectDate(
+                          context,
+                          contactsModel,
+                          contactsModel.entityBeingEdited.birthday,
+                        );
+                        if (chosenDate != null) {
+                          contactsModel.entityBeingEdited.birthday = chosenDate;
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -125,7 +144,7 @@ class ContactsEntry extends StatelessWidget {
   void _save(BuildContext context, ContactsModel model) async {
     // ignore: unused_local_variable
     int id = 0;
-    
+
     if (!_formKey.currentState.validate()) {
       return;
     }
@@ -139,10 +158,13 @@ class ContactsEntry extends StatelessWidget {
     contactsModel.loadData(ContactsDBWorker.db);
     model.setStackIndex(0);
     Scaffold.of(context).showSnackBar(
-        SnackBar(
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2), content: Text(AppLocalizations.of(context).translate('contact_saved')),
-        )
+      SnackBar(
+        backgroundColor: Colors.green,
+        duration: Duration(seconds: 2),
+        content: Text(
+          AppLocalizations.of(context).translate('contact_saved'),
+        ),
+      ),
     );
   }
 }
