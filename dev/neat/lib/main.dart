@@ -32,8 +32,8 @@ class Neat extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       supportedLocales: [
+        Locale('en', 'US'), // Default Language
         Locale('es', 'ES'),
-        Locale('en', 'US'),
         Locale('pt', 'BR'),
       ],
       localizationsDelegates: [
