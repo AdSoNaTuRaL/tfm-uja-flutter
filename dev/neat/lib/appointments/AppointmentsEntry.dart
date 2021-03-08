@@ -1,11 +1,14 @@
 import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'AppointmentsDBWorker.dart';
 import 'AppointmentsModel.dart';
 import '../utils.dart';
 
 class AppointmentsEntry extends StatelessWidget {
+  final _descriptionFocusNode = FocusNode();
+
   final TextEditingController _titleEditingController = TextEditingController();
   final TextEditingController _descriptionEditingController =
       TextEditingController();
@@ -75,6 +78,9 @@ class AppointmentsEntry extends StatelessWidget {
                         hintText: AppLocalizations.of(context)
                             .translate('input_title'),
                       ),
+                      textInputAction: TextInputAction.next,
+                      onFieldSubmitted: (_) => FocusScope.of(context)
+                          .requestFocus(_descriptionFocusNode),
                       controller: _titleEditingController,
                       validator: (String value) {
                         if (value.length == 0) {
@@ -88,6 +94,8 @@ class AppointmentsEntry extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.content_paste),
                     title: TextFormField(
+                      focusNode: _descriptionFocusNode,
+                      textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.multiline,
                       maxLines: 8,
                       decoration: InputDecoration(

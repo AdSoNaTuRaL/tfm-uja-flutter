@@ -6,6 +6,9 @@ import 'ContactsModel.dart';
 import '../utils.dart' as utils;
 
 class ContactsEntry extends StatelessWidget {
+  final _phoneFocusNode = FocusNode();
+  final _emailFocusNode = FocusNode();
+
   final TextEditingController _nameEditingController = TextEditingController();
   final TextEditingController _phoneEditingController = TextEditingController();
   final TextEditingController _emailEditingController = TextEditingController();
@@ -71,13 +74,16 @@ class ContactsEntry extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.person),
                     title: TextFormField(
+                      textInputAction: TextInputAction.next,
+                      onFieldSubmitted: (_) =>
+                          FocusScope.of(context).requestFocus(_phoneFocusNode),
                       decoration: InputDecoration(
                         hintText: AppLocalizations.of(context)
                             .translate('input_name'),
                       ),
                       controller: _nameEditingController,
                       validator: (String value) {
-                        if (value.length == 0) {
+                        if (value.trim().length == 0) {
                           return AppLocalizations.of(context)
                               .translate('message_name');
                         }
@@ -88,6 +94,10 @@ class ContactsEntry extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.phone),
                     title: TextFormField(
+                      textInputAction: TextInputAction.next,
+                      focusNode: _phoneFocusNode,
+                      onFieldSubmitted: (_) =>
+                          FocusScope.of(context).requestFocus(_emailFocusNode),
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         hintText: AppLocalizations.of(context)
@@ -99,11 +109,22 @@ class ContactsEntry extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.email),
                     title: TextFormField(
+                      focusNode: _emailFocusNode,
+                      textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: AppLocalizations.of(context)
                             .translate('input_email'),
                       ),
+                      validator: (String value) {
+                        if (value.trim().length == 0 ||
+                            !value.trim().contains('@') ||
+                            !value.trim().contains('.')) {
+                          return AppLocalizations.of(context)
+                              .translate('message_email');
+                        }
+                        return null;
+                      },
                       controller: _emailEditingController,
                     ),
                   ),

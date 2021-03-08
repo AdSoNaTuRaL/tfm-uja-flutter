@@ -64,6 +64,7 @@ class TasksEntry extends StatelessWidget {
                   ListTile(
                     leading: Icon(Icons.content_paste),
                     title: TextFormField(
+                      textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.multiline,
                       maxLines: 8,
                       decoration: InputDecoration(

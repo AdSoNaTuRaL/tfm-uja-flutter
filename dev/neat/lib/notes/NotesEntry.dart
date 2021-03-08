@@ -5,6 +5,8 @@ import 'NotesDBWorker.dart';
 import 'NotesModel.dart';
 
 class NotesEntry extends StatelessWidget {
+  final _descriptionFocusNode = FocusNode();
+
   final TextEditingController _titleEditingController = TextEditingController();
   final TextEditingController _contentEditingController =
       TextEditingController();
@@ -51,6 +53,8 @@ class NotesEntry extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.title),
       title: TextFormField(
+        textInputAction: TextInputAction.next,
+        onFieldSubmitted: (_) => FocusScope.of(context).requestFocus(_descriptionFocusNode),
         decoration: InputDecoration(
           hintText: AppLocalizations.of(context).translate('input_title'),
         ),
@@ -69,6 +73,8 @@ class NotesEntry extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.content_paste),
       title: TextFormField(
+        focusNode: _descriptionFocusNode,
+        textInputAction: TextInputAction.next,
         keyboardType: TextInputType.multiline,
         maxLines: 8,
         decoration: InputDecoration(
