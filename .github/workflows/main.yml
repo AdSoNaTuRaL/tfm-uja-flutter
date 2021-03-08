@@ -1,6 +1,8 @@
 name: Build and Release apk
 on: 
   push:
+    tags:
+    - '*'
 
 jobs:
 
@@ -20,7 +22,7 @@ jobs:
     - run: cd ./dev/neat/ && flutter build apk --release
     - run: ls
     - name: Create a Release APK
-      uses: actions/upload-artifact@v2
+      uses: ncipollo/release-action@v1
       with:
-        name: neat-app
-        path: dev/neat/build/app/outputs/flutter-apk/app-release.apk
+        artifact: "dev/neat/build/app/outputs/flutter-apk/app-release.apk"
+        token: ${{ secrets.NEAT_TOKEN }}
