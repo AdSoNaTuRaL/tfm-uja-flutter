@@ -23,4 +23,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: neat-app
-        path: ./tfm-uja-flutter/dev/neat/build/app/outputs/flutter-apk/app-release.apk
+        path: dev/neat/build/app/outputs/flutter-apk/app-release.apk
