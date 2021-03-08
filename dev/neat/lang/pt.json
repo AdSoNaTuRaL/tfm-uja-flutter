@@ -17,6 +17,7 @@
     "message_description": "Por favor insira uma descrição",
     "message_title": "Por favor insira um título",
     "message_name": "Por favor insira um nome",
+    "message_email": "Por favor insira um e-mail válido",
     
     "due_date": "Data de Vencimento",
     "birthday": "Aniversário",

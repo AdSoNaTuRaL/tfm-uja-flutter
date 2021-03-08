@@ -17,6 +17,7 @@
     "message_description": "Please enter a description",
     "message_title": "Please enter a title",
     "message_name": "Please enter a name",
+    "message_email": "Please enter a valid e-mail",
     
     "due_date": "Due Date",
     "birthday": "Birthday",
