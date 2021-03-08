@@ -9,8 +9,7 @@ jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./dev/neat/
+
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v1
@@ -19,12 +18,10 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: '1.22.4'
-    - run: flutter pub get
-      working-directory: ${{env.working-directory}}
-    - run: flutter build apk
-      working-directory: ${{env.working-directory}}
+    - run: cd ./dev/neat/ && flutter pub get
+    - run: cd ./dev/neat/ && flutter build apk --release
     - name: Create a Release APK
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "build/app/outputs/apk/release/*.apk"
+        artifacts: "build/app/outputs/flutter-apk/*.apk"
         token: ${{ secrets.NEAT_TOKEN }}
