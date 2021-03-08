@@ -21,7 +21,7 @@ jobs:
     - run: cd ./dev/neat/ && flutter pub get
     - run: cd ./dev/neat/ && flutter build apk --release
     - name: Create a Release APK
-      uses: ncipollo/release-action@v1
+      uses: actions/upload-artifact@v2
       with:
-        artifacts: "build/app/outputs/flutter-apk/*.apk"
-        token: ${{ secrets.NEAT_TOKEN }}
+        name: neat-app
+        path: tfm-uja-flutter/dev/neat/build/app/outputs/flutter-apk/app-release.apk
