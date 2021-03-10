@@ -25,3 +25,12 @@ mixin DateSelection on Model {
     notifyListeners();
   }
 }
+
+mixin LinkSelection on Model {
+  String chosenLink;
+
+  void setChosenLink(String linkString) {
+    this.chosenLink = linkString;
+    notifyListeners();
+  }
+}

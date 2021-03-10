@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:intl/intl.dart';
 
 Future<String> selectDate(BuildContext context, dynamic model, String date) async {
@@ -55,4 +56,20 @@ String toFormattedTime(String time, BuildContext context) {
   List<String> parts = time.split(",");
   TimeOfDay at = TimeOfDay(hour: int.parse(parts[0]), minute: int.parse(parts[1]));
   return "${at.format(context)}";
+}
+
+Future<String> scanQR(BuildContext context, dynamic model, String link) async {
+  try {
+    var result = await BarcodeScanner.scan();
+    String picked = result;
+    if (picked == null) picked = link;
+    if (picked != null) {
+      print(picked);
+      model.setChosenLink(picked);
+      return picked;
+    }
+  } catch (e) {
+    print(e);
+  }
+  return link;
 }

@@ -1,4 +1,5 @@
 import 'package:Neat/app_localizations.dart';
+import 'package:Neat/links/Links.dart';
 import 'package:flutter/material.dart';
 
 import '../notes/Notes.dart';
@@ -10,7 +11,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Neat'),
@@ -32,6 +33,10 @@ class Home extends StatelessWidget {
                 icon: Icon(Icons.assignment_turned_in),
                 text: AppLocalizations.of(context).translate('tab_text_title_task'),
               ),
+              Tab(
+                icon: Icon(Icons.settings_overscan),
+                text: 'QR Reader' //AppLocalizations.of(context).translate('tab_text_title_task'),
+              ),
             ],
           ),
         ),
@@ -41,6 +46,7 @@ class Home extends StatelessWidget {
             Contacts(),
             Notes(),
             Tasks(),
+            Links(),
           ],
         ),
       ),
