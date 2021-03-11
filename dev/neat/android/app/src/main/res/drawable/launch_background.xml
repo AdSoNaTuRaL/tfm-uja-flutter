@@ -7,7 +7,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/logotipo"/>
-            <!-- Default = android:src="@mipmap/logo"--> 
+            android:src="@mipmap/logotipo" />
+            <!-- android:src="@drawable/logotipo"/> -->
     </item>
 </layer-list>
