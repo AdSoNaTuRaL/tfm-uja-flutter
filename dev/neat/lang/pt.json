@@ -47,8 +47,9 @@
 
     "really_delete": "Tem certeza que deseja apagar",
     "qr_read": "Ler QR",
+    "error_url": "Não foi possível abrir a URL",
 
     "splash_0": "Bem-vindo a Neat",
-    "splash_1": "Crie suas notas, agendamentos, contatos e tarefas",
+    "splash_1": "Crie suas notas, agendamentos, contatos, tarefas e links",
     "splash_2": "Tudo isso em um só app"
 }
