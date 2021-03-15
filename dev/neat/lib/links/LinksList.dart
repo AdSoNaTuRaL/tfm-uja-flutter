@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'LinksDBWorker.dart';
@@ -89,17 +90,17 @@ class LinksList extends StatelessWidget {
       barrierDismissible: false,
       builder: (BuildContext alertContext) {
         return AlertDialog(
-          title: Text('Delete QR Scan'),
-          content: Text('Really delete ${note.description}?'),
+          title: Text(AppLocalizations.of(context).translate('link_delete')),
+          content: Text('${AppLocalizations.of(context).translate('really_delete')} ${note.description}?'),
           actions: [
             FlatButton(
-              child: Text('Cancel'),
+              child: Text(AppLocalizations.of(context).translate('cancel')),
               onPressed: () {
                 Navigator.of(alertContext).pop();
               },
             ),
             FlatButton(
-              child: Text('Delete'),
+              child: Text(AppLocalizations.of(context).translate('delete')),
               onPressed: () async {
                 await LinksDBWorker.db.delete(note.id);
                 Navigator.of(alertContext).pop();
@@ -107,7 +108,7 @@ class LinksList extends StatelessWidget {
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),
-                    content: Text('Link deleted'),
+                    content: Text(AppLocalizations.of(context).translate('link_deleted')),
                   ),
                 );
                 linksModel.loadData(LinksDBWorker.db);
