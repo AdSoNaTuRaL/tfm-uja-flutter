@@ -34,8 +34,8 @@ class Home extends StatelessWidget {
                 text: AppLocalizations.of(context).translate('tab_text_title_task'),
               ),
               Tab(
-                icon: Icon(Icons.settings_overscan),
-                text: 'QR Reader' //AppLocalizations.of(context).translate('tab_text_title_task'),
+                icon: Icon(Icons.link),
+                text: AppLocalizations.of(context).translate('tab_text_title_link'),
               ),
             ],
           ),
