@@ -1,6 +1,7 @@
 import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'LinksDBWorker.dart';
 import 'LinksModel.dart' show Link, LinksModel, linksModel;
 
@@ -58,10 +59,24 @@ class LinksList extends StatelessWidget {
                       ),
                     ),
                   ),
+                  onDoubleTap: () async {
+                    if (await canLaunch(link.actLink)) {
+                      await launch(link.actLink, forceWebView: true);
+                    } else {
+                      Scaffold.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.red,
+                          duration: Duration(seconds: 2),
+                          content: Text(AppLocalizations.of(context).translate('error_url')),
+                        ),
+                      );
+                    }
+                  },
                   onTap: () async {
                     if (link.actLink != null) {
-                      print(link.actLink);
+                      return;
                     }
+
                     linksModel.entityBeingEdited =
                         await LinksDBWorker.db.get(link.id);
                     if (linksModel.entityBeingEdited.actLink == null) {
@@ -91,7 +106,8 @@ class LinksList extends StatelessWidget {
       builder: (BuildContext alertContext) {
         return AlertDialog(
           title: Text(AppLocalizations.of(context).translate('link_delete')),
-          content: Text('${AppLocalizations.of(context).translate('really_delete')} ${note.description}?'),
+          content: Text(
+              '${AppLocalizations.of(context).translate('really_delete')} ${note.description}?'),
           actions: [
             FlatButton(
               child: Text(AppLocalizations.of(context).translate('cancel')),
@@ -108,7 +124,8 @@ class LinksList extends StatelessWidget {
                   SnackBar(
                     backgroundColor: Colors.red,
                     duration: Duration(seconds: 2),
-                    content: Text(AppLocalizations.of(context).translate('link_deleted')),
+                    content: Text(
+                        AppLocalizations.of(context).translate('link_deleted')),
                   ),
                 );
                 linksModel.loadData(LinksDBWorker.db);
