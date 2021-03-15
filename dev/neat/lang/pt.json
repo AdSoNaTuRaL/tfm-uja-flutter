@@ -3,6 +3,7 @@
     "tab_text_title_contact": "Contatos",
     "tab_text_title_note": "Notas",
     "tab_text_title_task": "Tarefas",
+    "tab_text_title_link": "Links",
     
     "cancel": "Cancelar",
     "save": "Salvar",
@@ -40,7 +41,12 @@
     "task_delete": "Apagar Tarefa",
     "task_deleted": "Tarefa apagada",
 
+    "link_saved": "Link salvo",
+    "link_delete": "Apagar Link",
+    "link_deleted": "Link apagado",
+
     "really_delete": "Tem certeza que deseja apagar",
+    "qr_read": "Ler QR",
 
     "splash_0": "Bem-vindo a Neat",
     "splash_1": "Crie suas notas, agendamentos, contatos e tarefas",

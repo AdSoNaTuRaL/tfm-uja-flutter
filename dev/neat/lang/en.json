@@ -3,6 +3,7 @@
     "tab_text_title_contact": "Contacts",
     "tab_text_title_note": "Notes",
     "tab_text_title_task": "Tasks",
+    "tab_text_title_link": "Links",
     
     "cancel": "Cancel",
     "save": "Save",
@@ -40,7 +41,12 @@
     "task_delete": "Delete Task",
     "task_deleted": "Task deleted",
 
+    "link_saved": "Link saved",
+    "link_delete": "Delete Link",
+    "link_deleted": "Link deleted",
+
     "really_delete": "Are you sure you want to delete",
+    "qr_read": "Read QR",
 
     "splash_0": "Welcome to Neat",
     "splash_1": "Create your notes, appointments, contacts and tasks",
