@@ -1,3 +1,4 @@
+import 'package:Neat/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'LinksDBWorker.dart';
@@ -32,16 +33,16 @@ class LinksEntry extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
               child: Row(
                 children: [
-                  FlatButton(
-                    child: Text('Cancel'),
+                  TextButton(
+                    child: Text(AppLocalizations.of(context).translate('cancel')),
                     onPressed: () {
                       FocusScope.of(context).requestFocus(FocusNode());
                       model.setStackIndex(0);
                     },
                   ),
                   Spacer(),
-                  FlatButton(
-                    child: Text('Save'),
+                  TextButton(
+                    child: Text(AppLocalizations.of(context).translate('save')),
                     onPressed: () {
                       _save(context, linksModel);
                     },
@@ -58,11 +59,11 @@ class LinksEntry extends StatelessWidget {
                     title: TextFormField(
                       keyboardType: TextInputType.multiline,
                       maxLines: 1,
-                      decoration: InputDecoration(hintText: 'Description'),
+                      decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
                       controller: _descriptionEditingController,
                       validator: (String value) {
                         if (value.length == 0) {
-                          return 'Please enter a description for the link';
+                          return AppLocalizations.of(context).translate('message_description');
                         }
                         return null;
                       },
@@ -70,13 +71,12 @@ class LinksEntry extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.link),
-                    title: Text("Read QR"),
+                    title: Text(AppLocalizations.of(context).translate('qr_read')),
                     subtitle: Text(_actLink()),
                     trailing: IconButton(
                       icon: Icon(Icons.camera_alt),
                       color: Colors.blue,
                       onPressed: () async {
-                        print("Edit Pressed");
                         String chosenLink = await scanQR(context, linksModel,
                             linksModel.entityBeingEdited.actLink);
                         if (chosenLink != null) {
@@ -119,7 +119,7 @@ class LinksEntry extends StatelessWidget {
       SnackBar(
         backgroundColor: Colors.green,
         duration: Duration(seconds: 2),
-        content: Text('Task saved'),
+        content: Text(AppLocalizations.of(context).translate('link_saved')),
       ),
     );
   }
