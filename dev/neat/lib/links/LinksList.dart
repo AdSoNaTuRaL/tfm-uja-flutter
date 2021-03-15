@@ -35,18 +35,18 @@ class LinksList extends StatelessWidget {
             body: GridView.builder(
               itemCount: linksModel.entityList.length,
               itemBuilder: (BuildContext context, int index) {
-                Link task = linksModel.entityList[index];
+                Link link = linksModel.entityList[index];
                 String actLink;
-                if (task.actLink != null) {
-                  actLink = task.actLink;
+                if (link.actLink != null) {
+                  actLink = link.actLink;
                 }
                 return GestureDetector(
                   child: Container(
                     color: iterateColor(),
                     child: Center(
                       child: Text(
-                        "${task.description}",
-                        style: task.completed
+                        "${link.description}",
+                        style: link.completed
                             ? TextStyle(
                                 color: Theme.of(context).disabledColor,
                                 decoration: TextDecoration.lineThrough,
@@ -59,11 +59,11 @@ class LinksList extends StatelessWidget {
                     ),
                   ),
                   onTap: () async {
-                    if (task.completed) {
-                      return;
+                    if (link.actLink != null) {
+                      print(link.actLink);
                     }
                     linksModel.entityBeingEdited =
-                        await LinksDBWorker.db.get(task.id);
+                        await LinksDBWorker.db.get(link.id);
                     if (linksModel.entityBeingEdited.actLink == null) {
                       linksModel.setChosenLink(null);
                     } else {
@@ -71,7 +71,7 @@ class LinksList extends StatelessWidget {
                     }
                     linksModel.setStackIndex(1);
                   },
-                  onLongPress: () => _deleteLink(context, task),
+                  onLongPress: () => _deleteLink(context, link),
                 );
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
