@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 
 import 'home/home.dart';
 
-int initScreen = 0;
+int firstTime = 0;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences preferences = await SharedPreferences.getInstance();
-  initScreen = preferences.getInt('initScreen');
-  await preferences.setInt("initScreen", 1);
+  firstTime = preferences.getInt('onBoardingAlreadyBeenSeen');
+  await preferences.setInt("onBoardingAlreadyBeenSeen", 1);
   runApp(Neat());
 }
 
@@ -52,7 +52,7 @@ class Neat extends StatelessWidget {
 
         return supportedLocales.first;
       },
-      home: initScreen != 1 ? OnBoarding() : Home(),
+      home: firstTime != 1 ? OnBoarding() : Home(),
     );
   }
 }
