@@ -10,7 +10,6 @@ class LinksDBWorker {
   static const String KEY_ID = 'id';
   static const String KEY_DESCRIPTION = 'description';
   static const String KEY_ACT_LINK = 'actLink';
-  static const String KEY_COMPLETED = 'completed';
 
   Database _db;
 
@@ -27,8 +26,7 @@ class LinksDBWorker {
               "CREATE TABLE IF NOT EXISTS $TBL_NAME ("
                   "$KEY_ID INTEGER PRIMARY KEY,"
                   "$KEY_DESCRIPTION TEXT,"
-                  "$KEY_ACT_LINK TEXT,"
-                  "$KEY_COMPLETED INTEGER"
+                  "$KEY_ACT_LINK TEXT"
                   ")"
           );
         }
@@ -38,9 +36,9 @@ class LinksDBWorker {
   Future<int> create(Link link) async {
     Database db = await database;
     return await db.rawInsert(
-        "INSERT INTO $TBL_NAME ($KEY_DESCRIPTION, $KEY_ACT_LINK, $KEY_COMPLETED) "
+        "INSERT INTO $TBL_NAME ($KEY_DESCRIPTION, $KEY_ACT_LINK) "
             "VALUES (?, ?, ?)",
-        [link.description, link.actLink, link.completed ? 1 : 0]
+        [link.description, link.actLink]
     );
   }
 
@@ -71,15 +69,13 @@ class LinksDBWorker {
     return Link()
       ..id = map[KEY_ID]
       ..description = map[KEY_DESCRIPTION]
-      ..actLink = map[KEY_ACT_LINK]
-      ..completed = map[KEY_COMPLETED] != 0;
+      ..actLink = map[KEY_ACT_LINK];
   }
 
   Map<String, dynamic> _linkToMap(Link link) {
     return Map<String, dynamic>()
       ..[KEY_ID] = link.id
       ..[KEY_DESCRIPTION] = link.description
-      ..[KEY_ACT_LINK] = link.actLink
-      ..[KEY_COMPLETED] = link.completed ?  1 : 0;
+      ..[KEY_ACT_LINK] = link.actLink;
   }
 }
