@@ -28,64 +28,66 @@ class LinksEntry extends StatelessWidget {
                 model.entityBeingEdited.description;
           }
 
-          return Scaffold(
-            bottomNavigationBar: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              child: Row(
-                children: [
-                  TextButton(
-                    child: Text(AppLocalizations.of(context).translate('cancel')),
-                    onPressed: () {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      model.setStackIndex(0);
-                    },
-                  ),
-                  Spacer(),
-                  TextButton(
-                    child: Text(AppLocalizations.of(context).translate('save')),
-                    onPressed: () {
-                      _save(context, linksModel);
-                    },
-                  ),
-                ],
+          return SafeArea(
+            child: Scaffold(
+              bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                child: Row(
+                  children: [
+                    TextButton(
+                      child: Text(AppLocalizations.of(context).translate('cancel')),
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        model.setStackIndex(0);
+                      },
+                    ),
+                    Spacer(),
+                    TextButton(
+                      child: Text(AppLocalizations.of(context).translate('save')),
+                      onPressed: () {
+                        _save(context, linksModel);
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            body: Form(
-              key: _formKey,
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.text_fields),
-                    title: TextFormField(
-                      keyboardType: TextInputType.multiline,
-                      maxLines: 1,
-                      decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
-                      controller: _descriptionEditingController,
-                      validator: (String value) {
-                        if (value.length == 0) {
-                          return AppLocalizations.of(context).translate('message_description');
-                        }
-                        return null;
-                      },
+              body: Form(
+                key: _formKey,
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.text_fields),
+                      title: TextFormField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 1,
+                        decoration: InputDecoration(hintText: AppLocalizations.of(context).translate('input_description')),
+                        controller: _descriptionEditingController,
+                        validator: (String value) {
+                          if (value.length == 0) {
+                            return AppLocalizations.of(context).translate('message_description');
+                          }
+                          return null;
+                        },
+                      ),
                     ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.link),
-                    title: Text(AppLocalizations.of(context).translate('qr_read')),
-                    subtitle: Text(_actLink()),
-                    trailing: IconButton(
-                      icon: Icon(Icons.camera_alt),
-                      color: Colors.blue,
-                      onPressed: () async {
-                        String chosenLink = await scanQR(context, linksModel,
-                            linksModel.entityBeingEdited.actLink);
-                        if (chosenLink != null) {
-                          linksModel.entityBeingEdited.actLink = chosenLink;
-                        }
-                      },
+                    ListTile(
+                      leading: Icon(Icons.link),
+                      title: Text(AppLocalizations.of(context).translate('qr_read')),
+                      subtitle: Text(_actLink()),
+                      trailing: IconButton(
+                        icon: Icon(Icons.camera_alt),
+                        color: Colors.blue,
+                        onPressed: () async {
+                          String chosenLink = await scanQR(context, linksModel,
+                              linksModel.entityBeingEdited.actLink);
+                          if (chosenLink != null) {
+                            linksModel.entityBeingEdited.actLink = chosenLink;
+                          }
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
