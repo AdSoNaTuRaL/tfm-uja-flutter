@@ -39,121 +39,123 @@ class ContactsEntry extends StatelessWidget {
             _emailEditingController.text = model.entityBeingEdited.email;
           }
 
-          return Scaffold(
-            bottomNavigationBar: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              child: Row(
-                children: [
-                  TextButton(
-                    child: Text(
-                      AppLocalizations.of(context).translate('cancel'),
-                    ),
-                    onPressed: () {
-                      FocusScope.of(context).requestFocus(
-                        FocusNode(),
-                      );
-                      model.setStackIndex(0);
-                    },
-                  ),
-                  Spacer(),
-                  TextButton(
-                    child: Text(
-                      AppLocalizations.of(context).translate('save'),
-                    ),
-                    onPressed: () {
-                      _save(context, model);
-                    },
-                  ),
-                ],
-              ),
-            ),
-            body: Form(
-              key: _formKey,
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.person),
-                    title: TextFormField(
-                      textInputAction: TextInputAction.next,
-                      onFieldSubmitted: (_) =>
-                          FocusScope.of(context).requestFocus(_phoneFocusNode),
-                      decoration: InputDecoration(
-                        hintText: AppLocalizations.of(context)
-                            .translate('input_name'),
+          return SafeArea(
+            child: Scaffold(
+              bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                child: Row(
+                  children: [
+                    TextButton(
+                      child: Text(
+                        AppLocalizations.of(context).translate('cancel'),
                       ),
-                      controller: _nameEditingController,
-                      validator: (String value) {
-                        if (value.trim().length == 0) {
-                          return AppLocalizations.of(context)
-                              .translate('message_name');
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.phone),
-                    title: TextFormField(
-                      textInputAction: TextInputAction.next,
-                      focusNode: _phoneFocusNode,
-                      onFieldSubmitted: (_) =>
-                          FocusScope.of(context).requestFocus(_emailFocusNode),
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        hintText: AppLocalizations.of(context)
-                            .translate('input_phone'),
-                      ),
-                      controller: _phoneEditingController,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.email),
-                    title: TextFormField(
-                      focusNode: _emailFocusNode,
-                      textInputAction: TextInputAction.next,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        hintText: AppLocalizations.of(context)
-                            .translate('input_email'),
-                      ),
-                      validator: (String value) {
-                        if (value.trim().length == 0 ||
-                            !value.trim().contains('@') ||
-                            !value.trim().contains('.')) {
-                          return AppLocalizations.of(context)
-                              .translate('message_email');
-                        }
-                        return null;
-                      },
-                      controller: _emailEditingController,
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.today),
-                    title: Text(
-                      AppLocalizations.of(context).translate('birthday'),
-                    ),
-                    subtitle: Text(
-                      contactsModel.chosenDate == null
-                          ? ""
-                          : contactsModel.chosenDate,
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.edit),
-                      color: Colors.blue,
-                      onPressed: () async {
-                        String chosenDate = await utils.selectDate(
-                          context,
-                          contactsModel,
-                          contactsModel.entityBeingEdited.birthday,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(
+                          FocusNode(),
                         );
-                        if (chosenDate != null) {
-                          contactsModel.entityBeingEdited.birthday = chosenDate;
-                        }
+                        model.setStackIndex(0);
                       },
                     ),
-                  ),
-                ],
+                    Spacer(),
+                    TextButton(
+                      child: Text(
+                        AppLocalizations.of(context).translate('save'),
+                      ),
+                      onPressed: () {
+                        _save(context, model);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              body: Form(
+                key: _formKey,
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.person),
+                      title: TextFormField(
+                        textInputAction: TextInputAction.next,
+                        onFieldSubmitted: (_) =>
+                            FocusScope.of(context).requestFocus(_phoneFocusNode),
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)
+                              .translate('input_name'),
+                        ),
+                        controller: _nameEditingController,
+                        validator: (String value) {
+                          if (value.trim().length == 0) {
+                            return AppLocalizations.of(context)
+                                .translate('message_name');
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.phone),
+                      title: TextFormField(
+                        textInputAction: TextInputAction.next,
+                        focusNode: _phoneFocusNode,
+                        onFieldSubmitted: (_) =>
+                            FocusScope.of(context).requestFocus(_emailFocusNode),
+                        keyboardType: TextInputType.phone,
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)
+                              .translate('input_phone'),
+                        ),
+                        controller: _phoneEditingController,
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.email),
+                      title: TextFormField(
+                        focusNode: _emailFocusNode,
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)
+                              .translate('input_email'),
+                        ),
+                        validator: (String value) {
+                          if (value.trim().length == 0 ||
+                              !value.trim().contains('@') ||
+                              !value.trim().contains('.')) {
+                            return AppLocalizations.of(context)
+                                .translate('message_email');
+                          }
+                          return null;
+                        },
+                        controller: _emailEditingController,
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.today),
+                      title: Text(
+                        AppLocalizations.of(context).translate('birthday'),
+                      ),
+                      subtitle: Text(
+                        contactsModel.chosenDate == null
+                            ? ""
+                            : contactsModel.chosenDate,
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(Icons.edit),
+                        color: Colors.blue,
+                        onPressed: () async {
+                          String chosenDate = await utils.selectDate(
+                            context,
+                            contactsModel,
+                            contactsModel.entityBeingEdited.birthday,
+                          );
+                          if (chosenDate != null) {
+                            contactsModel.entityBeingEdited.birthday = chosenDate;
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

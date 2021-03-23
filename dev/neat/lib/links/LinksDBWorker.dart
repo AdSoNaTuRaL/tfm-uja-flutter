@@ -37,7 +37,7 @@ class LinksDBWorker {
     Database db = await database;
     return await db.rawInsert(
         "INSERT INTO $TBL_NAME ($KEY_DESCRIPTION, $KEY_ACT_LINK) "
-            "VALUES (?, ?, ?)",
+            "VALUES (?, ?)",
         [link.description, link.actLink]
     );
   }

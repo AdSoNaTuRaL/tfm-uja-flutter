@@ -29,82 +29,84 @@ class TasksEntry extends StatelessWidget {
                 model.entityBeingEdited.description;
           }
 
-          return Scaffold(
-            bottomNavigationBar: Padding(
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-              child: Row(
-                children: [
-                  TextButton(
-                    child: Text(
-                      AppLocalizations.of(context).translate('cancel'),
-                    ),
-                    onPressed: () {
-                      FocusScope.of(context).requestFocus(
-                        FocusNode(),
-                      );
-                      model.setStackIndex(0);
-                    },
-                  ),
-                  Spacer(),
-                  TextButton(
-                    child: Text(
-                      AppLocalizations.of(context).translate('save'),
-                    ),
-                    onPressed: () {
-                      _save(context, tasksModel);
-                    },
-                  ),
-                ],
-              ),
-            ),
-            body: Form(
-              key: _formKey,
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.content_paste),
-                    title: TextFormField(
-                      textInputAction: TextInputAction.next,
-                      keyboardType: TextInputType.multiline,
-                      maxLines: 8,
-                      decoration: InputDecoration(
-                        hintText: AppLocalizations.of(context)
-                            .translate('input_description'),
+          return SafeArea(
+            child: Scaffold(
+              bottomNavigationBar: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                child: Row(
+                  children: [
+                    TextButton(
+                      child: Text(
+                        AppLocalizations.of(context).translate('cancel'),
                       ),
-                      controller: _descriptionEditingController,
-                      validator: (String value) {
-                        if (value.length == 0) {
-                          return AppLocalizations.of(context)
-                              .translate('message_description');
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.today),
-                    title: Text(
-                      AppLocalizations.of(context).translate('due_date'),
-                    ),
-                    subtitle: Text(
-                      _dueDate(),
-                    ), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
-                    trailing: IconButton(
-                      icon: Icon(Icons.edit),
-                      color: Colors.blue,
-                      onPressed: () async {
-                        String chosenDate = await selectDate(
-                          context,
-                          tasksModel,
-                          tasksModel.entityBeingEdited.dueDate,
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(
+                          FocusNode(),
                         );
-                        if (chosenDate != null) {
-                          tasksModel.entityBeingEdited.dueDate = chosenDate;
-                        }
+                        model.setStackIndex(0);
                       },
                     ),
-                  ),
-                ],
+                    Spacer(),
+                    TextButton(
+                      child: Text(
+                        AppLocalizations.of(context).translate('save'),
+                      ),
+                      onPressed: () {
+                        _save(context, tasksModel);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              body: Form(
+                key: _formKey,
+                child: ListView(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.content_paste),
+                      title: TextFormField(
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 8,
+                        decoration: InputDecoration(
+                          hintText: AppLocalizations.of(context)
+                              .translate('input_description'),
+                        ),
+                        controller: _descriptionEditingController,
+                        validator: (String value) {
+                          if (value.length == 0) {
+                            return AppLocalizations.of(context)
+                                .translate('message_description');
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.today),
+                      title: Text(
+                        AppLocalizations.of(context).translate('due_date'),
+                      ),
+                      subtitle: Text(
+                        _dueDate(),
+                      ), //tasksModel.chosenDate == null ? "" : tasksModel.chosenDate),
+                      trailing: IconButton(
+                        icon: Icon(Icons.edit),
+                        color: Colors.blue,
+                        onPressed: () async {
+                          String chosenDate = await selectDate(
+                            context,
+                            tasksModel,
+                            tasksModel.entityBeingEdited.dueDate,
+                          );
+                          if (chosenDate != null) {
+                            tasksModel.entityBeingEdited.dueDate = chosenDate;
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

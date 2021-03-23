@@ -29,19 +29,21 @@ class NotesEntry extends StatelessWidget {
         _titleEditingController.text = model.entityBeingEdited?.title;
         _contentEditingController.text = model.entityBeingEdited?.content;
 
-        return Scaffold(
-          bottomNavigationBar: Padding(
-            padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: _buildControlButtons(context, model),
-          ),
-          body: Form(
-            key: _formKey,
-            child: ListView(
-              children: [
-                _buildTitleListTile(context),
-                _buildContentListTile(context),
-                _buildColorListTile(context)
-              ],
+        return SafeArea(
+          child: Scaffold(
+            bottomNavigationBar: Padding(
+              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+              child: _buildControlButtons(context, model),
+            ),
+            body: Form(
+              key: _formKey,
+              child: ListView(
+                children: [
+                  _buildTitleListTile(context),
+                  _buildContentListTile(context),
+                  _buildColorListTile(context)
+                ],
+              ),
             ),
           ),
         );

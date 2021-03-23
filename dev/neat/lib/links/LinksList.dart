@@ -73,10 +73,6 @@ class LinksList extends StatelessWidget {
                     }
                   },
                   onTap: () async {
-                    if (link.actLink != null) {
-                      return;
-                    }
-
                     linksModel.entityBeingEdited =
                         await LinksDBWorker.db.get(link.id);
                     if (linksModel.entityBeingEdited.actLink == null) {
