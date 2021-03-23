@@ -73,7 +73,7 @@ class LinksList extends StatelessWidget {
                     }
                   },
                   onTap: () async {
-                    if (link.actLink != null) {
+                    if (link.actLink == null) {
                       return;
                     }
 
