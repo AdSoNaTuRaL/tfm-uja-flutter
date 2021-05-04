@@ -19,10 +19,11 @@
 This project was developed using the following technologies:
 
 - [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
 
 ## 🔥 Download the apk
 
-[Neat APK](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/releases/download/v1.1.2/neat.apk)
+- [Neat APK](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/releases/download/v1.1.2/neat.apk)
 
 ## 🚀 Getting started
 > Running on your computer/ emulator
