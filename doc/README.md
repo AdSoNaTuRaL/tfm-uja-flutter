@@ -1,6 +1,7 @@
 
 <div align="center">
    <h1>Thesis</h1>
+   <h4>All information about the thesis</h4>
 </div>
 
 <br/>
