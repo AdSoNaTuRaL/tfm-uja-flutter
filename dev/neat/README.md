@@ -59,6 +59,6 @@ $ flutter run
 
 <br />
 
-# :bug: Issues
+## :bug: Issues
 
 Feel free to **create a new issue** with a respective title and description on the [Neat](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**!
