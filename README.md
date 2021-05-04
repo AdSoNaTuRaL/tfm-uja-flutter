@@ -28,6 +28,7 @@ This project was developed using the following technologies:
 
 ## 🚀 Getting started
 > Running on your computer/ emulator
+> This project was created in version 1.22.4 of the flutter
 
 Clone the project and access the folder
 
