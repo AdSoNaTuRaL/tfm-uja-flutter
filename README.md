@@ -14,6 +14,8 @@
   <a href="#-special-thanks">Special Thanks</a>
 </p>
 
+<br />
+
 ## 🧪 Technologies
 
 This project was developed using the following technologies:
