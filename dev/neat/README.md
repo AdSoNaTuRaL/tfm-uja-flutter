@@ -1,6 +1,6 @@
 
 <div align="center">
-   <h1>Neat</h1>
+   <h1>Code - Neat</h1>
    <h4>Simple application that allows creation and maintenance of schedules, notes, contacts, links, tasks, all in the same application</h4>
 </div>
 
