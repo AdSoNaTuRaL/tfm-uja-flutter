@@ -12,10 +12,7 @@
   <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-special-thanks">Special Thanks</a>
-  
 </p>
-
-<br>
 
 ## 🧪 Technologies
 
