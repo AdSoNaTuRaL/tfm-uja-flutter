@@ -59,5 +59,5 @@ Remembering that you need to have a [Figma](http://figma.com/) account to access
 
 ## 💖 Special Thanks
 
-Special thanks to [Jose Ortega Valiente](https://github.com/ZackReynolt) for being a great companion during my time in spain and in this case also for lending me his MacBook to make the last adjustments to the application so that it also works on iOS. I would also like to thanks, my tutor [Víctor Manuel Rivas Santos](https://github.com/vrivas), for all the patience, tips and knowledge that helped me to complete this thesis.
+Special thanks to [Jose Ortega Valiente](https://github.com/ZackReynolt) for being a great companion during my time in Spain and in this case also for lending me his MacBook to make the last adjustments to the application so that it also works on iOS. I would also like to thanks, my tutor [Víctor Manuel Rivas Santos](https://github.com/vrivas), for all the patience, tips and knowledge that helped me to complete this thesis.
 
