@@ -47,7 +47,7 @@ $ flutter run
 
 ## 🔖 Layout
 
-You can view the project layout through the links below:
+You can view the project layout through the link below:
 
 - [Layout](https://www.figma.com/file/ly7r7xKfmIMoC9Lmt8ex1X/Neat?node-id=0%3A1) 
 
