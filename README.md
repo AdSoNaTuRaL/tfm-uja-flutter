@@ -6,11 +6,13 @@
 
 <p align="center">
   <a href="https://github.com/AdSoNaTuRaL/tfm-uja-flutter/tree/main/doc">Thesis</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="https://github.com/AdSoNaTuRaL/tfm-uja-flutter/tree/main/dev/neat">Code</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/AdSoNaTuRaL/tfm-uja-flutter/tree/main/dev/neat">Code</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-download-the-apk">Download the app</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-special-thanks">Special Thanks</a>
+  
 </p>
 
 <br>
@@ -54,4 +56,8 @@ You can view the project layout through the link below:
 - [Layout](https://www.figma.com/file/ly7r7xKfmIMoC9Lmt8ex1X/Neat?node-id=0%3A1) 
 
 Remembering that you need to have a [Figma](http://figma.com/) account to access it.
+
+## 💖 Special Thanks
+
+Special thanks to @ZackReynolt for being a great companion during my time in spain and in this case also for lending me his MacBook to make the last adjustments to the application so that it also works on iOS. I would also like to thanks, my tutor @vrivas, for all the patience, tips and knowledge that helped me to complete this thesis.
 
