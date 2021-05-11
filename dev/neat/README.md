@@ -1,6 +1,6 @@
 
 <div align="center">
-   <img src="https://user-images.githubusercontent.com/26275918/117818100-93be5780-b268-11eb-86a2-60c306bf62ba.png" width="200">
+   <img src="https://user-images.githubusercontent.com/26275918/117818100-93be5780-b268-11eb-86a2-60c306bf62ba.png" width="50">
    <h4>Simple application that allows creation and maintenance of schedules, notes, contacts, links, tasks, all in the same application</h4>
 </div>
 
