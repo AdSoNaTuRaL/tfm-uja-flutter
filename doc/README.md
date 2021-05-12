@@ -8,7 +8,7 @@
 
 # ✅ Getting Started
 
-- In the imgs folder you can find almost all the images used in the thesis.
+- In the `imgs` folder you can find almost all the images used in the thesis.
 - [Thesis Cover](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/blob/main/doc/MInginf.pdf)
 - [Thesis in docx format](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/blob/main/doc/tfm.docx)
 - [Thesis in pdf format](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/blob/main/doc/tfm.pdf)
