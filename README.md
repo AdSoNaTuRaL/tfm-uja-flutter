@@ -28,7 +28,7 @@ This project was developed using the following technologies:
 - [Neat APK](https://github.com/AdSoNaTuRaL/tfm-uja-flutter/releases/download/v1.1.2/neat.apk)
 
 ## 🚀 Getting started
-> This project was created in version `1.22.4` of the flutter
+> This project was created in version `1.22.4` of flutter
 
 Clone the project and access the folder
 
